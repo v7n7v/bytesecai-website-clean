@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '../../../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../../../lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,9 +17,11 @@ export async function POST(request: NextRequest) {
     // Try to store in Supabase
     let chatLog = null;
     
-    try {
-      // Store in Supabase
-      const { data: newChatLog, error: insertError } = await supabase
+    // Only attempt database operations if Supabase is configured
+    if (isSupabaseConfigured()) {
+      try {
+        // Store in Supabase
+        const { data: newChatLog, error: insertError } = await supabase
         .from('chat_sessions')
         .insert([
           {
@@ -38,12 +40,13 @@ export async function POST(request: NextRequest) {
       if (insertError) {
         console.error('Supabase insert failed:', insertError);
         // Continue without database storage, but log the error
-      } else {
-        chatLog = newChatLog;
+        } else {
+          chatLog = newChatLog;
+        }
+      } catch (tableError) {
+        console.error('Chat logs database error:', tableError);
+        // Continue without database storage, but log the error
       }
-    } catch (tableError) {
-      console.error('Chat logs database error:', tableError);
-      // Continue without database storage, but log the error
     }
 
     // Prepare webhook payload
