@@ -89,7 +89,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
               🎉 Welcome to ByteSecAI!
             </h3>
             <p className="text-green-600 dark:text-green-300 text-xl mb-8 transition-all duration-1000">
-              You're now part of our cybersecurity community!
+              You&apos;re now part of our cybersecurity community!
             </p>
             <div className="bg-green-100 dark:bg-green-900/30 rounded-xl p-6 border border-green-200 dark:border-green-700 mb-8">
               <p className="text-green-700 dark:text-green-300 text-base">
@@ -104,7 +104,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
               onClick={handleClose}
               className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
             >
-              🚀 Let's Go!
+              🚀 Let&apos;s Go!
             </button>
           </div>
         ) : (

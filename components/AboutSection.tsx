@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 
 export default function AboutSection() {
-  const [mounted, setMounted] = useState(false);
+  const [, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -131,11 +131,11 @@ export default function AboutSection() {
 
                   {/* Vision Quote */}
                   <div className="relative">
-                    <div className="absolute -left-6 -top-2 text-cyan-400/30 text-6xl">"</div>
+                    <div className="absolute -left-6 -top-2 text-cyan-400/30 text-6xl">&ldquo;</div>
                     <blockquote className="text-lg text-slate-300 leading-relaxed italic max-w-md mx-auto relative z-10">
                       Our vision is to democratize enterprise-level cybersecurity through AI, making advanced protection accessible to organizations of all sizes.
                     </blockquote>
-                    <div className="absolute -right-6 -bottom-2 text-cyan-400/30 text-6xl">"</div>
+                    <div className="absolute -right-6 -bottom-2 text-cyan-400/30 text-6xl">&rdquo;</div>
                   </div>
 
                   {/* Professional Connection */}
