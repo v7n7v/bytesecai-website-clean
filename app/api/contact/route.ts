@@ -24,9 +24,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Store in Supabase
-    let contactMessage = null;
+    let contactMessage;
     
-    if (supabase) {
+    try {
       const { data: newContactMessage, error: supabaseError } = await supabase
         .from('contacts')
         .insert([
@@ -52,10 +52,12 @@ export async function POST(request: NextRequest) {
       }
       
       contactMessage = newContactMessage;
-    } else {
-      console.warn('Supabase not available, skipping database storage');
-      // Create a mock contact message for email functionality
-      contactMessage = { id: 'mock-' + Date.now() };
+    } catch (error) {
+      console.error('Contact form database error:', error);
+      return NextResponse.json(
+        { error: 'Database error. Please try again.' },
+        { status: 500 }
+      );
     }
 
     // Send confirmation email to user

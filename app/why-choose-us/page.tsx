@@ -80,7 +80,7 @@ export default function WhyChooseUsPage() {
               The Vision Behind the Mission
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Every great company starts with a dream. Ours began with a cybersecurity professional&apos;s vision to democratize enterprise-grade security.
+              Every great company starts with a dream. Ours began with a cybersecurity professional's vision to democratize enterprise-grade security.
             </p>
           </div>
 
@@ -112,8 +112,8 @@ export default function WhyChooseUsPage() {
                   </div>
                   
                   <p className="text-lg text-slate-300 group-hover:text-slate-200 leading-relaxed mb-8 transition-colors duration-300">
-                    &ldquo;As an aspiring cybersecurity professional, I witnessed firsthand the challenges that organizations face in protecting their digital assets. 
-                    The complexity, cost, and expertise required often put enterprise-grade security out of reach for many businesses.&rdquo;
+                    "As an aspiring cybersecurity professional, I witnessed firsthand the challenges that organizations face in protecting their digital assets. 
+                    The complexity, cost, and expertise required often put enterprise-grade security out of reach for many businesses."
                   </p>
                   
                   <div className="grid grid-cols-2 gap-4">
@@ -229,7 +229,7 @@ export default function WhyChooseUsPage() {
                   </div>
                   <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500 group-hover:bg-clip-text transition-all duration-500 leading-tight">Innovation Hub</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-6 transition-colors duration-300 font-medium">
-                    We&apos;re not just implementing security solutions; we&apos;re creating them. Our AI-powered approach combines cutting-edge technology with practical business needs.
+                    We're not just implementing security solutions; we're creating them. Our AI-powered approach combines cutting-edge technology with practical business needs.
                   </p>
                   <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center space-x-2">
@@ -334,7 +334,7 @@ export default function WhyChooseUsPage() {
                   </div>
                   <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500 group-hover:bg-clip-text transition-all duration-500 leading-tight">Cost Efficiency</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-6 transition-colors duration-300 font-medium">
-                    Enterprise security shouldn&apos;t break the bank. We deliver premium protection at startup-friendly prices, maximizing your security ROI.
+                    Enterprise security shouldn't break the bank. We deliver premium protection at startup-friendly prices, maximizing your security ROI.
                   </p>
                   <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center space-x-2">
@@ -438,7 +438,7 @@ export default function WhyChooseUsPage() {
               Our Journey to Excellence
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              From a single cybersecurity professional&apos;s vision to a trusted partner for businesses worldwide
+              From a single cybersecurity professional's vision to a trusted partner for businesses worldwide
             </p>
           </div>
 
@@ -454,7 +454,7 @@ export default function WhyChooseUsPage() {
                 <div className="w-5/12 pr-8 text-right">
                   <div className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-cyan-200 dark:border-cyan-700">
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">The Vision</h3>
-                    <p className="text-gray-600 dark:text-gray-300">A cybersecurity professional&apos;s dream to democratize enterprise security</p>
+                    <p className="text-gray-600 dark:text-gray-300">A cybersecurity professional's dream to democratize enterprise security</p>
                   </div>
                 </div>
                 
@@ -557,7 +557,7 @@ export default function WhyChooseUsPage() {
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
               Join the growing community of businesses that trust ByteSecAI with their cybersecurity needs. 
-              Let&apos;s build a more secure future together.
+              Let's build a more secure future together.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">

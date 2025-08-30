@@ -35,11 +35,11 @@ export default function ContactPage() {
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-slate-100 mb-4 leading-tight tracking-tight">
-                Let&apos;s Connect & Secure
+                Let's Connect & Secure
               </h1>
               
               <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Ready to transform your cybersecurity posture? We&apos;re here to help you succeed with expert consultation and support.
+                Ready to transform your cybersecurity posture? We're here to help you succeed with expert consultation and support.
               </p>
               
               {/* Compact Contact Options */}

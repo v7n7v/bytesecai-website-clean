@@ -180,7 +180,7 @@ export default function WhyChooseSection() {
 
                 {/* Description */}
                 <p className="text-slate-400 group-hover:text-slate-300 transition-colors duration-300 mb-6 leading-relaxed flex-1">
-                  Investing in tomorrow&apos;s security challenges today, ensuring you&apos;re always one step ahead of cyber threats.
+                  Investing in tomorrow's security challenges today, ensuring you're always one step ahead of cyber threats.
                 </p>
 
                 {/* Professional animation indicator */}

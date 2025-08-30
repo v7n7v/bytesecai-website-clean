@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -80,7 +79,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="text-slate-100 font-bold text-lg mb-2">The Problem We Saw</h3>
-                      <p className="text-slate-400 leading-relaxed">Traditional cybersecurity solutions were complex, expensive, and required specialized expertise that many organizations couldn&apos;t afford.</p>
+                      <p className="text-slate-400 leading-relaxed">Traditional cybersecurity solutions were complex, expensive, and required specialized expertise that many organizations couldn't afford.</p>
                     </div>
                   </div>
 
@@ -100,7 +99,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="text-slate-100 font-bold text-lg mb-2">Our Impact</h3>
-                      <p className="text-slate-400 leading-relaxed">Today, we&apos;re helping organizations worldwide stay protected with enterprise-grade security that&apos;s both powerful and accessible.</p>
+                      <p className="text-slate-400 leading-relaxed">Today, we're helping organizations worldwide stay protected with enterprise-grade security that's both powerful and accessible.</p>
                     </div>
                   </div>
                 </div>
@@ -236,19 +235,19 @@ export default function AboutPage() {
                   <h2 className="text-4xl md:text-5xl font-bold text-slate-100 group-hover:text-white mb-6 transition-colors duration-300">
                     Ready to Work With Us?
                   </h2>
-                                      <p className="text-xl text-slate-300 group-hover:text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
-                    Let&apos;s discuss how ByteSecAI can help secure your organization&apos;s future. Get in touch with our team today.
+                  <p className="text-xl text-slate-300 group-hover:text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
+                    Let's discuss how ByteSecAI can help secure your organization's future. Get in touch with our team today.
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg font-semibold">
+                    <a href="/contact" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg font-semibold">
                       <span>Contact Us</span>
                       <i className="ri-arrow-right-line ml-3 text-lg"></i>
-                    </Link>
-                    <Link href="/services" className="inline-flex items-center px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-2xl hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 hover:scale-105 font-semibold">
+                    </a>
+                    <a href="/services" className="inline-flex items-center px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-2xl hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300 hover:scale-105 font-semibold">
                       <span>Our Services</span>
                       <i className="ri-service-line ml-3 text-lg"></i>
-                    </Link>
+                    </a>
                   </div>
 
                   {/* Professional animation indicator */}

@@ -23,57 +23,72 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if already subscribed
+        // Check if already subscribed
     let existingSubscription = null;
-    let subscription = null;
-    
-    if (supabase) {
-      try {
-        const { data: existing } = await supabase
-          .from('newsletter_subscribers')
-          .select('*')
-          .eq('email', email)
-          .single();
+    try {
+      const { data: existing, error: selectError } = await supabase
+        .from('newsletter_subscribers')
+        .select('*')
+        .eq('email', email)
+        .single();
 
-        existingSubscription = existing;
-      } catch {
-        // Email not found, which is fine
-      }
-
-      if (existingSubscription) {
+      if (selectError && selectError.code !== 'PGRST116') {
+        console.error('Supabase select error:', selectError);
         return NextResponse.json(
-          { error: 'Email already subscribed' },
-          { status: 400 }
+          { error: 'Database error' },
+          { status: 500 }
         );
       }
 
-      // Store in Supabase
-      try {
-        const { data: newSubscription, error: insertError } = await supabase
-          .from('newsletter_subscribers')
-          .insert([
-            {
-              email,
-              name: name || 'Subscriber',
-              source: 'website',
-              user_agent: request.headers.get('user-agent') || 'Unknown',
-              ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
-            }
-          ])
-          .select()
-          .single();
+      existingSubscription = existing;
+    } catch (error) {
+      console.error('Newsletter subscription check error:', error);
+      return NextResponse.json(
+        { error: 'Database error' },
+        { status: 500 }
+      );
+    }
 
-        if (insertError) {
-          console.warn('Supabase insert failed (table may not exist):', insertError);
-        } else {
-          subscription = newSubscription;
-        }
-      } catch (tableError) {
-        console.warn('Newsletter subscribers table may not exist yet:', tableError);
-        // Continue without database storage
+    if (existingSubscription) {
+      return NextResponse.json(
+        { error: 'Email already subscribed' },
+        { status: 400 }
+      );
+    }
+
+    // Store in Supabase
+    let subscription = null;
+    
+    try {
+      const { data: newSubscription, error: insertError } = await supabase
+        .from('newsletter_subscribers')
+        .insert([
+          {
+            email,
+            name: name || 'Subscriber',
+            source: 'website',
+            user_agent: request.headers.get('user-agent') || 'Unknown',
+            ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
+          }
+        ])
+        .select()
+        .single();
+
+      if (insertError) {
+        console.error('Supabase insert failed:', insertError);
+        return NextResponse.json(
+          { error: 'Failed to subscribe. Please try again.' },
+          { status: 500 }
+        );
       }
-    } else {
-      console.warn('Supabase not available, skipping database storage');
+      
+      subscription = newSubscription;
+    } catch (tableError) {
+      console.error('Newsletter subscription error:', tableError);
+      return NextResponse.json(
+        { error: 'Database error. Please try again.' },
+        { status: 500 }
+      );
     }
 
     // Send confirmation email

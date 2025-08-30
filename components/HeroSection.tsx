@@ -50,7 +50,7 @@ export default function HeroSection() {
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      particles.forEach((particle) => {
+      particles.forEach((particle, index) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
         particle.life--;
@@ -285,7 +285,7 @@ export default function HeroSection() {
         <p className={`mt-8 text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          We&apos;re building the future of cybersecurity with artificial intelligence. Join us in revolutionizing how organizations protect their digital assets with innovative, AI-driven security solutions.
+          We're building the future of cybersecurity with artificial intelligence. Join us in revolutionizing how organizations protect their digital assets with innovative, AI-driven security solutions.
         </p>
 
         {/* CTA Buttons */}

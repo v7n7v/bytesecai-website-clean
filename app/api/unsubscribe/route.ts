@@ -24,20 +24,39 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if email exists in database
-    if (!supabase) {
+    let subscriber;
+    
+    try {
+      const { data: existingSubscriber, error: fetchError } = await supabase
+        .from('newsletter_subscribers')
+        .select('*')
+        .eq('email', email)
+        .single();
+
+      if (fetchError) {
+        if (fetchError.code === 'PGRST116') {
+          return NextResponse.json(
+            { error: 'Email not found in our newsletter list' },
+            { status: 404 }
+          );
+        }
+        console.error('Supabase fetch error:', fetchError);
+        return NextResponse.json(
+          { error: 'Database error' },
+          { status: 500 }
+        );
+      }
+
+      subscriber = existingSubscriber;
+    } catch (error) {
+      console.error('Unsubscribe fetch error:', error);
       return NextResponse.json(
-        { error: 'Database service unavailable' },
-        { status: 503 }
+        { error: 'Database error' },
+        { status: 500 }
       );
     }
 
-    const { data: subscriber, error: fetchError } = await supabase
-      .from('newsletter_subscribers')
-      .select('*')
-      .eq('email', email)
-      .single();
-
-    if (fetchError || !subscriber) {
+    if (!subscriber) {
       return NextResponse.json(
         { error: 'Email not found in our newsletter list' },
         { status: 404 }
@@ -45,15 +64,23 @@ export async function POST(request: NextRequest) {
     }
 
     // Remove subscriber from database
-    const { error: deleteError } = await supabase
-      .from('newsletter_subscribers')
-      .delete()
-      .eq('email', email);
+    try {
+      const { error: deleteError } = await supabase
+        .from('newsletter_subscribers')
+        .delete()
+        .eq('email', email);
 
-    if (deleteError) {
-      console.error('Error unsubscribing user:', deleteError);
+      if (deleteError) {
+        console.error('Error unsubscribing user:', deleteError);
+        return NextResponse.json(
+          { error: 'Failed to unsubscribe. Please try again.' },
+          { status: 500 }
+        );
+      }
+    } catch (error) {
+      console.error('Unsubscribe delete error:', error);
       return NextResponse.json(
-        { error: 'Failed to unsubscribe. Please try again.' },
+        { error: 'Database error. Please try again.' },
         { status: 500 }
       );
     }

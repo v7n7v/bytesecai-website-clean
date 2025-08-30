@@ -14,39 +14,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Try to store in Supabase, but don't fail if table doesn't exist
+    // Try to store in Supabase
     let chatLog = null;
     
-    if (supabase) {
-      try {
-        // Store in Supabase
-        const { data: newChatLog, error: insertError } = await supabase
-          .from('chat_sessions')
-          .insert([
-            {
-              session_id: sessionId || 'unknown',
-              user_id: 'anonymous',
-              message: message,
-              message_timestamp: timestamp || new Date().toISOString(),
-              source: 'website',
-              user_agent: request.headers.get('user-agent') || 'Unknown',
-              ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
-            }
-          ])
-          .select()
-          .single();
+    try {
+      // Store in Supabase
+      const { data: newChatLog, error: insertError } = await supabase
+        .from('chat_sessions')
+        .insert([
+          {
+            session_id: sessionId || 'unknown',
+            user_id: 'anonymous',
+            message: message,
+            message_timestamp: timestamp || new Date().toISOString(),
+            source: 'website',
+            user_agent: request.headers.get('user-agent') || 'Unknown',
+            ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
+          }
+        ])
+        .select()
+        .single();
 
-        if (insertError) {
-          console.warn('Supabase insert failed (table may not exist):', insertError);
-        } else {
-          chatLog = newChatLog;
-        }
-      } catch (tableError) {
-        console.warn('Chat logs table may not exist yet:', tableError);
-        // Continue without database storage
+      if (insertError) {
+        console.error('Supabase insert failed:', insertError);
+        // Continue without database storage, but log the error
+      } else {
+        chatLog = newChatLog;
       }
-    } else {
-      console.warn('Supabase not available, skipping database storage');
+    } catch (tableError) {
+      console.error('Chat logs database error:', tableError);
+      // Continue without database storage, but log the error
     }
 
     // Prepare webhook payload
