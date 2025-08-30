@@ -24,6 +24,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if email exists in database
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Database service unavailable' },
+        { status: 503 }
+      );
+    }
+
     const { data: subscriber, error: fetchError } = await supabase
       .from('newsletter_subscribers')
       .select('*')

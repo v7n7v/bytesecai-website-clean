@@ -37,7 +37,7 @@ export default function ComingSoonPage() {
               </h1>
               
               <p className="text-xl text-slate-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-                We're working hard to bring you the most advanced cybersecurity platform. Our team is putting the finishing touches on something amazing.
+                We&apos;re working hard to bring you the most advanced cybersecurity platform. Our team is putting the finishing touches on something amazing.
               </p>
               
               {/* Progress Indicator */}
@@ -73,7 +73,7 @@ export default function ComingSoonPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              What We're Building
+              What We&apos;re Building
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               A revolutionary cybersecurity platform that combines AI, automation, and human expertise to protect your digital assets.
@@ -246,7 +246,7 @@ export default function ComingSoonPage() {
           
           <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40">
             <p className="text-slate-300 mb-4">
-              We're in the final stages of development and testing. Our platform will be ready for launch very soon!
+              We&apos;re in the final stages of development and testing. Our platform will be ready for launch very soon!
             </p>
             <div className="w-full bg-slate-700 rounded-full h-2">
               <div className="bg-gradient-to-r from-cyan-500 to-blue-600 h-2 rounded-full" style={{width: '95%'}}></div>

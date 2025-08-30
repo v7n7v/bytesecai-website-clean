@@ -25,53 +25,55 @@ export async function POST(request: NextRequest) {
 
     // Check if already subscribed
     let existingSubscription = null;
-    try {
-      const { data: existing } = await supabase
-        .from('newsletter_subscribers')
-        .select('*')
-        .eq('email', email)
-        .single();
-
-      existingSubscription = existing;
-    } catch (error) {
-      // Email not found, which is fine
-    }
-
-    if (existingSubscription) {
-      return NextResponse.json(
-        { error: 'Email already subscribed' },
-        { status: 400 }
-      );
-    }
-
-    // Store in Supabase
     let subscription = null;
-    let supabaseError = null;
     
-    try {
-      const { data: newSubscription, error: insertError } = await supabase
-        .from('newsletter_subscribers')
-        .insert([
-          {
-            email,
-            name: name || 'Subscriber',
-            source: 'website',
-            user_agent: request.headers.get('user-agent') || 'Unknown',
-            ip_address: request.headers.get('x-forwarded-for') || request.ip || 'Unknown'
-          }
-        ])
-        .select()
-        .single();
+    if (supabase) {
+      try {
+        const { data: existing } = await supabase
+          .from('newsletter_subscribers')
+          .select('*')
+          .eq('email', email)
+          .single();
 
-      if (insertError) {
-        supabaseError = insertError;
-        console.warn('Supabase insert failed (table may not exist):', insertError);
-      } else {
-        subscription = newSubscription;
+        existingSubscription = existing;
+      } catch {
+        // Email not found, which is fine
       }
-    } catch (tableError) {
-      console.warn('Newsletter subscribers table may not exist yet:', tableError);
-      // Continue without database storage
+
+      if (existingSubscription) {
+        return NextResponse.json(
+          { error: 'Email already subscribed' },
+          { status: 400 }
+        );
+      }
+
+      // Store in Supabase
+      try {
+        const { data: newSubscription, error: insertError } = await supabase
+          .from('newsletter_subscribers')
+          .insert([
+            {
+              email,
+              name: name || 'Subscriber',
+              source: 'website',
+              user_agent: request.headers.get('user-agent') || 'Unknown',
+              ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
+            }
+          ])
+          .select()
+          .single();
+
+        if (insertError) {
+          console.warn('Supabase insert failed (table may not exist):', insertError);
+        } else {
+          subscription = newSubscription;
+        }
+      } catch (tableError) {
+        console.warn('Newsletter subscribers table may not exist yet:', tableError);
+        // Continue without database storage
+      }
+    } else {
+      console.warn('Supabase not available, skipping database storage');
     }
 
     // Send confirmation email

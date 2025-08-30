@@ -24,28 +24,38 @@ export async function POST(request: NextRequest) {
     }
 
     // Store in Supabase
-    const { data: contactMessage, error: supabaseError } = await supabase
-      .from('contacts')
-      .insert([
-        {
-          name,
-          email,
-          company: company || 'Not specified',
-          message,
-          source: 'website',
-          user_agent: request.headers.get('user-agent') || 'Unknown',
-          ip_address: request.headers.get('x-forwarded-for') || request.ip || 'Unknown'
-        }
-      ])
-      .select()
-      .single();
+    let contactMessage = null;
+    
+    if (supabase) {
+      const { data: newContactMessage, error: supabaseError } = await supabase
+        .from('contacts')
+        .insert([
+          {
+            name,
+            email,
+            company: company || 'Not specified',
+            message,
+            source: 'website',
+            user_agent: request.headers.get('user-agent') || 'Unknown',
+            ip_address: request.headers.get('x-forwarded-for') || 'Unknown'
+          }
+        ])
+        .select()
+        .single();
 
-    if (supabaseError) {
-      console.error('Supabase error:', supabaseError);
-      return NextResponse.json(
-        { error: 'Database error' },
-        { status: 500 }
-      );
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError);
+        return NextResponse.json(
+          { error: 'Database error' },
+          { status: 500 }
+        );
+      }
+      
+      contactMessage = newContactMessage;
+    } else {
+      console.warn('Supabase not available, skipping database storage');
+      // Create a mock contact message for email functionality
+      contactMessage = { id: 'mock-' + Date.now() };
     }
 
     // Send confirmation email to user
@@ -100,7 +110,7 @@ export async function POST(request: NextRequest) {
             contactId: contactMessage.id,
             timestamp: new Date().toISOString(),
             userAgent: request.headers.get('user-agent') || 'Unknown',
-            ipAddress: request.headers.get('x-forwarded-for') || request.ip || 'Unknown'
+            ipAddress: request.headers.get('x-forwarded-for') || 'Unknown'
           }
         }),
       });
