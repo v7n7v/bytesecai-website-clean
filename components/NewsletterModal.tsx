@@ -73,7 +73,7 @@ export default function NewsletterModal({ isOpen, onClose }: NewsletterModalProp
   return (
     <div className="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
       <div 
-        className={`relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-8 max-w-md w-full shadow-2xl border transition-all duration-1000 overflow-hidden ${
+        className={`relative bg-slate-900/60 backdrop-blur-xl rounded-2xl p-6 sm:p-8 max-w-sm sm:max-w-md w-full shadow-2xl border transition-all duration-1000 overflow-hidden ${
           isSubmitted 
             ? 'border-slate-700/40 hover:border-slate-600/60' 
             : 'border-slate-700/40 hover:border-slate-600/60'

@@ -113,7 +113,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900 relative overflow-hidden transition-colors duration-300">
+    <section id="contact" className="py-16 sm:py-20 bg-slate-900 relative overflow-hidden transition-colors duration-300">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -122,15 +122,15 @@ export default function ContactSection() {
       </div>
 
       {/* Floating gradient orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-indigo-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-purple-500/10 to-indigo-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6 transition-colors duration-300">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100 mb-4 sm:mb-6 transition-colors duration-300 px-4">
             Ready to Secure Your Future?
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-6 transition-colors duration-300">
+          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-4 sm:mb-6 transition-colors duration-300 px-4">
             Get in touch with our cybersecurity experts and discover how ByteSecAI can protect your organization
           </p>
           <a 

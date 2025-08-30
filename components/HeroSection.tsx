@@ -264,7 +264,7 @@ export default function HeroSection() {
         </div>
 
         {/* Main Headline */}
-        <h1 className={`mt-8 text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight transition-all duration-1000 delay-300 hero-neon-pulse ${
+        <h1 className={`mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight transition-all duration-1000 delay-300 hero-neon-pulse ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <span className="bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent hero-gradient-shift">
@@ -282,32 +282,32 @@ export default function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className={`mt-8 text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+        <p className={`mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-500 px-4 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           We're building the future of cybersecurity with artificial intelligence. Join us in revolutionizing how organizations protect their digital assets with innovative, AI-driven security solutions.
         </p>
 
         {/* CTA Buttons */}
-        <div className={`mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center transition-all duration-1000 delay-700 ${
+        <div className={`mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 transition-all duration-1000 delay-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <button className="group px-8 py-4 bg-slate-700/60 backdrop-blur-sm text-slate-200 rounded-xl text-lg font-medium transition-all duration-300 border border-slate-600/30 hover:border-slate-500/50 hover:scale-[1.02] shadow-lg hover:bg-slate-600/60">
+          <button className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-700/60 backdrop-blur-sm text-slate-200 rounded-xl text-base sm:text-lg font-medium transition-all duration-300 border border-slate-600/30 hover:border-slate-500/50 hover:scale-[1.02] shadow-lg hover:bg-slate-600/60">
             <span className="flex items-center">
               Get Started
               <i className="ri-arrow-right-line ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
             </span>
           </button>
           
-          <button className="group px-8 py-4 border-2 border-gray-400/40 text-gray-300 rounded-full text-lg font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 hover:scale-105">
-            <span className="flex items-center">
+          <button className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-400/40 text-gray-300 rounded-full text-base sm:text-lg font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 hover:scale-105">
+            <span className="flex items-center justify-center">
               Learn More
               <i className="ri-external-link-line ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
             </span>
           </button>
           
-          <button className="group px-8 py-4 border-2 border-green-500/60 text-green-400 rounded-full text-lg font-semibold hover:border-green-400 hover:text-green-300 transition-all duration-300 hover:scale-105">
-            <span className="flex items-center">
+          <button className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-green-500/60 text-green-400 rounded-full text-base sm:text-lg font-semibold hover:border-green-400 hover:text-green-300 transition-all duration-300 hover:scale-105">
+            <span className="flex items-center justify-center">
               Stay Updated
               <i className="ri-notification-3-line ml-2 group-hover:scale-110 transition-transform duration-300"></i>
             </span>
@@ -315,7 +315,7 @@ export default function HeroSection() {
         </div>
 
         {/* Floating Tech Icons */}
-        <div className={`mt-16 flex justify-center space-x-8 transition-all duration-1000 delay-1000 ${
+        <div className={`mt-12 sm:mt-16 flex justify-center space-x-4 sm:space-x-6 md:space-x-8 px-4 transition-all duration-1000 delay-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           {[
@@ -327,10 +327,10 @@ export default function HeroSection() {
           ].map((tech, index) => (
             <div
               key={index}
-              className={`w-12 h-12 ${tech.color} opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110 hero-tech-float hover:hero-neon-pulse`}
+              className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 ${tech.color} opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110 hero-tech-float hover:hero-neon-pulse flex items-center justify-center`}
               style={{animationDelay: `${index * 0.2}s`}}
             >
-              <i className={`${tech.icon} text-2xl`}></i>
+              <i className={`${tech.icon} text-lg sm:text-xl md:text-2xl`}></i>
             </div>
           ))}
         </div>
