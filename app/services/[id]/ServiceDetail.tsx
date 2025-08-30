@@ -238,7 +238,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
               Flexible Pricing Plans
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Choose the perfect plan for your organization's security needs
+              Choose the perfect plan for your organization&apos;s security needs
             </p>
           </div>
 
@@ -362,7 +362,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Join thousands of organizations that trust ByteSecAI's {service.title.toLowerCase()} to protect their digital assets
+              Join thousands of organizations that trust ByteSecAI&apos;s {service.title.toLowerCase()} to protect their digital assets
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

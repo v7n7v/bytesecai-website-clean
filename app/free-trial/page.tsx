@@ -37,7 +37,7 @@ export default function FreeTrialPage() {
               </h1>
               
               <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Experience ByteSecAI's cutting-edge cybersecurity solutions with a 30-day free trial. No credit card required, full access to all features.
+                Experience ByteSecAI&apos;s cutting-edge cybersecurity solutions with a 30-day free trial. No credit card required, full access to all features.
               </p>
               
               {/* Trial Benefits */}
@@ -80,7 +80,7 @@ export default function FreeTrialPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              What's Included in Your Free Trial
+              What&apos;s Included in Your Free Trial
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Get full access to all ByteSecAI cybersecurity features and experience the power of AI-driven threat protection.
@@ -226,7 +226,7 @@ export default function FreeTrialPage() {
               How to Get Started
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Getting started with ByteSecAI is simple and takes just a few minutes. Here's how it works:
+                              Getting started with ByteSecAI is simple and takes just a few minutes. Here&apos;s how it works:
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function FreeTrialPage() {
                 What happens after my free trial ends?
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                After your 30-day free trial, you can choose to continue with one of our paid plans. We'll send you reminders before the trial ends, and you can upgrade at any time during the trial period.
+                After your 30-day free trial, you can choose to continue with one of our paid plans. We&apos;ll send you reminders before the trial ends, and you can upgrade at any time during the trial period.
               </p>
             </div>
 
