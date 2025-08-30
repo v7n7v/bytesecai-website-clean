@@ -10,7 +10,7 @@ export default function ServicesCTA() {
             Ready to Secure Your Business?
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed transition-colors duration-300">
-            Don't wait for a security breach to happen. Our experts are ready to assess your current security posture and recommend the best solutions for your organization.
+            Don&apos;t wait for a security breach to happen. Our experts are ready to assess your current security posture and recommend the best solutions for your organization.
           </p>
         </div>
         
