@@ -79,7 +79,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="text-slate-100 font-bold text-lg mb-2">The Problem We Saw</h3>
-                      <p className="text-slate-400 leading-relaxed">Traditional cybersecurity solutions were complex, expensive, and required specialized expertise that many organizations couldn't afford.</p>
+                      <p className="text-slate-400 leading-relaxed">Traditional cybersecurity solutions were complex, expensive, and required specialized expertise that many organizations couldn&apos;t afford.</p>
                     </div>
                   </div>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="text-slate-100 font-bold text-lg mb-2">Our Impact</h3>
-                      <p className="text-slate-400 leading-relaxed">Today, we're helping organizations worldwide stay protected with enterprise-grade security that's both powerful and accessible.</p>
+                      <p className="text-slate-400 leading-relaxed">Today, we&apos;re helping organizations worldwide stay protected with enterprise-grade security that&apos;s both powerful and accessible.</p>
                     </div>
                   </div>
                 </div>
