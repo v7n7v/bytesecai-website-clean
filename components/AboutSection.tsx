@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 
 export default function AboutSection() {
-  const [mounted, setMounted] = useState(false);
+  const [, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
